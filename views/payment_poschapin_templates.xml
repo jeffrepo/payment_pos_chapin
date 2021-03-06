@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+      <record id="portal_exito" model="website.page">
+          <field name="name">exito</field>
+          <field name="type">qweb</field>
+          <field name="url">/shop/payment/transaccion</field>
+          <field name="website_published">True</field>
+          <field name="key">payment_pos_chapin.portal_exito</field>
+          <field name="arch" type="xml">
+              <t name="gracias" t-name="payment_pos_chapin.portal_exito">
+                  <t t-call="portal.portal_layout">
+
+                      <div id="wrap">
+                          <div class="container">
+                              <h1>Gracias!</h1>
+                          </div>
+                      </div>
+                  </t>
+              </t>
+
+          </field>
+
+
+
+      </record>
+        <!-- <template id="poschapin_form">
+            <input type="hidden" name="data_set" t-att-data-action-url="tx_url" data-remove-me=""/>
+            <input type='hidden' name='session_id' t-att-value='session_id'/>
+            <input type="hidden" name="stripe_key" t-att-value="acquirer.stripe_publishable_key"/>
+            <script type="text/javascript">
+                odoo.define(function (require) {
+                    var ajax = require('web.ajax');
+                    ajax.loadJS("/payment_pos_chapin/static/src/js/poschapin.js");
+                });
+            </script>
+        </template>
+
+        <template id="poschapin_s2s_form">
+            <input type="hidden" name="data_set" value="/payment/poschapin/s2s/create_json_3ds"/>
+            <input type="hidden" name="acquirer_id" t-att-value="id"/>
+            <input type="hidden" name="stripe_publishable_key" t-att-value="acq.sudo().stripe_publishable_key"/>
+            <input type="hidden" name="currency_id" t-att-value="currency_id"/>
+            <input t-if="return_url" type="hidden" name="return_url" t-att-value="return_url"/>
+            <input t-if="partner_id" type="hidden" name="partner_id" t-att-value="partner_id"/>
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <div id="payment-form">
+                <div id="card-element" class="m-3"/>
+                <div id="card-errors" class="m-3 text-danger"/>
+            </div>
+        </template>
+
+        <template id="assets_frontend" inherit_id="web.assets_frontend">
+            <xpath expr="script[last()]" position="after">
+                <script type="text/javascript" src="/payment_pos_chapin/static/src/js/payment_form.js"></script>
+                <script type="text/javascript" src="/payment_pos_chapin/static/src/js/payment_processing.js"></script>
+
+            </xpath>
+        </template> -->
+
+        <!-- <template id="poschapin_form">
+            <div>
+              <input type="text" name="data_set" t-att-data-action-url="tx_url" data-remove-me=""/>
+              <t t-if="return_url">
+                  <input type="hidden" name='return_url' t-att-value='return_url'/>
+              </t>
+              <input type="text" name='reference' t-att-value='reference'/>
+              <input type="text" name='amount' t-att-value='amount'/>
+              <input type="text" name='currency' t-att-value='currency.name'/>
+            </div>
+        </template> -->
+
+
+
+        <!-- <template id="poschapin_s2s_form">
+            <input type="hidden" name="data_set" data-create-route="/payment/poschapin/s2s/create_json_3ds"/>
+            <input type="hidden" name="acquirer_id" t-att-value="id"/>
+            <input t-if="return_url" type="hidden" name="return_url" t-att-value="return_url"/>
+            <input t-if="partner_id" type="hidden" name="partner_id" t-att-value="partner_id"/>
+            <div t-attf-class="row mt8 #{'' if bootstrap_formatting else 'o_card_brand_detail'}">
+                <div t-att-class="'form-group col-lg-12' if bootstrap_formatting else 'form-group'">
+                    <input type="tel" name="card_number" id="cc_number" class="form-control" placeholder="Card number" data-is-required="true"/>
+                    <div class="card_placeholder"></div>
+                    <div class="visa"></div>
+                    <input type="hidden" name="cc_brand" value=""/>
+                </div>
+                <div t-att-class="'form-group col-lg-5' if bootstrap_formatting else 'form-group'">
+                    <input type="text" name="first_name" id="cc_holder_name" class="form-control" placeholder="Cardholder name" data-is-required="true"/>
+                </div>
+                <div t-att-class="'form-group col-lg-5' if bootstrap_formatting else 'form-group'">
+                    <input type="text" name="r" id="r" class="form-control" t-att-value="return_url"/>
+                </div>
+                <div t-att-class="'form-group col-lg-3' if bootstrap_formatting else 'form-group'">
+                    <input type="text" name="ccexp" id="cc_expiry" class="form-control" maxlength="7" placeholder="Expires (MM / YY)" data-is-required="true"/>
+                </div>
+                <div t-att-class="'form-group col-lg-4' if bootstrap_formatting else 'form-group'">
+                    <input type="text" name="cvv" id="cc_cvc" class="form-control" maxlength="4" placeholder="CVC" data-is-required="true"/>
+                </div>
+                <div t-att-class="'form-group col-lg-4' if bootstrap_formatting else 'form-group'">
+                    <input type="text" name="key_public" id="key_public" class="form-control" value="5834f6987a623afd644bdc1b7eb2f5c1"/>
+                </div>
+                <input type="hidden" name="amount" id="amount" value="1.00"/>
+                <input type="hidden" name="redirect	" id="redirect" value="https://www.google.com/"/>
+                <input type="hidden" name="orderid" id="orderid" value="poschapintest"/>
+                <input type="hidden" name="time" id="time" value="1613527619"/>
+                <input type="hidden" name="hash" id="hash" value="a0623ae61c23476787b8a95745aa321f"/>
+                <input type="hidden" name="email" id="email" value="jeffer.leo93@gmail.com"/>
+            </div>
+        </template> -->
+
+        <template id="payment_poschapin_redirect" name="Payment Poschaping">
+            <script type="text/javascript">
+                window.location.href = '<t t-esc="return_url"/>';
+            </script>
+        </template>
+
+        <template id="poschapin_s2s_form">
+            <input type="hidden" name="data_set" value="/payment/poschapin/s2s/create_json_3ds"/>
+            <input type="hidden" name="acquirer_id" t-att-value="id"/>
+            <input type="hidden" name="acquirer_state" t-att-value="acq.state"/>
+            <input type="hidden" name="login_id" t-att-value="acq.sudo().authorize_login"/>
+            <input type="hidden" name="client_key" t-att-value="acq.sudo().authorize_client_key"/>
+            <input class="d-none" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <input t-if="return_url" type="hidden" name="return_url" t-att-value="return_url"/>
+            <input t-if="partner_id" type="hidden" name="partner_id" t-att-value="partner_id"/>
+         </template>
+
+         <template id="assets_frontend" inherit_id="web.assets_frontend">
+            <xpath expr="script[last()]" position="after">
+                <script type="text/javascript" src="/payment_pos_chapin/static/src/js/payment_form.js"></script>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

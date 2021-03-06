@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="payment_acquirer_poschapin" model="payment.acquirer">
+      <field name="name">POS CHAPING</field>
+      <field name="display_as">Tarjeta credito / debito</field>
+      <!-- <field name="view_template_id" ref="poschapin_form"/>
+      <field name="view_template_id" ref="payment.default_acquirer_button"/> -->
+      <field name="image_128" type="base64" file="payment_stripe/static/src/img/stripe_icon.png"/>
+      <field name="module_id" ref="base.module_payment_pos_chapin"/>
+      <field name="registration_view_template_id" ref="poschapin_s2s_form"/>
+      <field name="description" type="html">
+          <p>
+              Pago con tarjeta de credito y debito.
+          </p>
+          <ul class="list-inline">
+              <li class="list-inline-item"><i class="fa fa-check"/>Online Payment</li>
+              <li class="list-inline-item"><i class="fa fa-check"/>Payment Status Tracking</li>
+              <li class="list-inline-item"><i class="fa fa-check"/>Subscriptions</li>
+              <li class="list-inline-item"><i class="fa fa-check"/>Save Cards</li>
+          </ul>
+      </field>
+      <!--
+          https://stripe.com/payments/payment-methods-guide
+          https://support.goteamup.com/hc/en-us/articles/115002089349-Which-cards-and-payment-types-can-I-accept-with-Stripe-
+      -->
+      <field name="payment_icon_ids" eval='[(6, 0, [ref("payment.payment_icon_cc_maestro"),
+                                                      ref("payment.payment_icon_cc_mastercard"),
+                                                      ref("payment.payment_icon_cc_discover"),
+                                                      ref("payment.payment_icon_cc_diners_club_intl"),
+                                                      ref("payment.payment_icon_cc_jcb"),
+                                                      ref("payment.payment_icon_cc_american_express"),
+                                                      ref("payment.payment_icon_cc_visa")])]'/>
+  </record>
+
+
+    <!-- <data noupdate="1">
+        <record id="payment.payment_acquirer_poschapin" model="payment.acquirer">
+            <field name="name">Pos chapin</field>
+            <field name="image_128" type="base64" file="payment_stripe/static/src/img/stripe_icon.png"/>
+            <field name="provider">poschapin</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="view_template_id" ref="poschaping_form"/>
+            <field name="registration_view_template_id" ref="poschapin_s2s_form"/>
+        </record>
+    </data> -->
+</odoo>
